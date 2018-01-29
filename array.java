@@ -2,6 +2,8 @@ package array;
 
 import java.util.Scanner;
 
+import org.omg.CORBA.TCKind;
+
 public class array {
 
 	//Aquí invocamos el método creado para generar un array, se puede añadir el número de registros y el máximo de de valor que 
@@ -12,11 +14,12 @@ public class array {
 	
 	static int[] arrayAleatorio = generaArray(numRegistroArray,numMaxAleatorioArray); 
 	
+	static Scanner teclado = new Scanner(System.in);
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
-		Scanner teclado = new Scanner(System.in);
+	
 
 		byte opcion;
 
@@ -27,6 +30,7 @@ public class array {
 			imprime("2 - Imprime el menor valor del array");
 			imprime("3 - Calcular la media de todos los valores del array");
 			imprime("4 - Imprime todos los valores del array");
+			imprime("5 - Genera una nueva tirada de array personalizado");
 
 			imprime("\nElige una opción");
 
@@ -35,18 +39,18 @@ public class array {
 			switch (opcion) {
 			case 1:
 
-				imprime("" + buscaMayor());
+				imprime("El valor más alto que se encuentra en el array es " + buscaMayor());
 
 				break;
 			case 2:
 
-				imprime("" + buscaMenor());
+				imprime("El valor más bajo dentro del array es" + buscaMenor());
 
 				break;
 
 			case 3:
 
-				imprime("" + media());
+				imprime("La media del array es " + media());
 
 				break;
 
@@ -55,7 +59,13 @@ public class array {
 				imprimeArray();
 
 				break;
+				
+			case 5:
+				
+				defineArray();
 
+				break;
+				
 			default:
 				break;
 			}
@@ -145,5 +155,21 @@ public class array {
 			System.out.print(" " + arrayAleatorio[i]);
 		}
 
+	}
+	
+	public static void defineArray() {
+		
+	imprime("Introduce el número de registros que quieres que tenga el array:");
+	
+	int sizeArray = teclado.nextInt();
+	
+	imprime("Introcue el máximo valor de números aleatorios que debe alojar el array en cada celda:");
+	
+	int rangeRandom = teclado.nextInt();	
+	
+	arrayAleatorio = generaArray(sizeArray,rangeRandom); 
+	
+	imprime("El nuevo array ha sido generado");
+	
 	}
 }
