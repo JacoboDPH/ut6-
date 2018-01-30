@@ -6,20 +6,24 @@ import org.omg.CORBA.TCKind;
 
 public class array {
 
-	//Aquí invocamos el método creado para generar un array, se puede añadir el número de registros y el máximo de de valor que 
-	// tendrá como aleatorio.
+	// Se definen los valores del array, tamaño del mismo y el valor máximo de los número aleatorios que tendrá dentro de cada celda.
+	// Es necesario hacerlo así (definiendo como int) porque será necesarios para posteriormente para hallar el mínimo del array
 	
-    static int numRegistroArray = 20;
+	static int numRegistroArray = 20;
 	static int numMaxAleatorioArray = 30; 	
+
+	// Este método genera una sola vez un array y se hace fura del método main para que pueda ser utilizado por todos los métodos
 	
 	static int[] arrayAleatorio = generaArray(numRegistroArray,numMaxAleatorioArray); 
+
+	// Igual con el método scanner 
 	
 	static Scanner teclado = new Scanner(System.in);
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
-	
+
 
 		byte opcion;
 
@@ -44,7 +48,7 @@ public class array {
 				break;
 			case 2:
 
-				imprime("El valor más bajo dentro del array es" + buscaMenor());
+				imprime("El valor más bajo dentro del array es " + buscaMenor());
 
 				break;
 
@@ -59,13 +63,13 @@ public class array {
 				imprimeArray();
 
 				break;
-				
+
 			case 5:
-				
+
 				defineArray();
 
 				break;
-				
+
 			default:
 				break;
 			}
@@ -156,20 +160,20 @@ public class array {
 		}
 
 	}
-	
+
 	public static void defineArray() {
-		
-	imprime("Introduce el número de registros que quieres que tenga el array:");
-	
-	int sizeArray = teclado.nextInt();
-	
-	imprime("Introcue el máximo valor de números aleatorios que debe alojar el array en cada celda:");
-	
-	int rangeRandom = teclado.nextInt();	
-	
-	arrayAleatorio = generaArray(sizeArray,rangeRandom); 
-	
-	imprime("El nuevo array ha sido generado");
-	
+
+		imprime("Introduce el número de registros que quieres que tenga el array:");
+
+		numRegistroArray = teclado.nextInt();
+
+		imprime("Introcue el máximo valor de números aleatorios que debe alojar el array en cada celda:");
+
+		numMaxAleatorioArray = teclado.nextInt();	
+
+		arrayAleatorio = generaArray(numRegistroArray,numMaxAleatorioArray); 
+
+		imprime("El nuevo array ha sido generado");
+
 	}
 }
