@@ -2,7 +2,6 @@ package array;
 
 import java.util.Scanner;
 
-import org.omg.CORBA.TCKind;
 
 public class array {
 
